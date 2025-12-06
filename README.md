@@ -1,43 +1,34 @@
-# 🐶 Dog Identification & Tracking System
+# 🐶 YOLOv5 Live Webcam Object Detection
 
-A system for identifying, registering, and tracking dogs using computer vision, metadata management, and location-tracking workflows. This repository contains tools for processing dog images, generating unique dog profiles, and managing tracking data over time.
-
----
-
-## ✨ Features
-
-- **Dog Identification**
-  - Image ingestion and preprocessing  
-  - Feature extraction using computer-vision models  
-  - Matching and re-identification across multiple images or camera feeds  
-
-- **Dog Profile Management**
-  - Store name, breed, age, color, and metadata  
-  - Maintain unique IDs for each dog  
-  - Update or merge profiles when new data is discovered  
-
-- **Tracking & History**
-  - Log location data (GPS or custom coordinates)  
-  - Retrieve historical movement paths  
-  - Optional real-time tracking integrations  
-
-- **API / CLI Tools**
-  - Register new dogs  
-  - Query existing profiles  
-  - Submit images for identification  
-  - Retrieve tracking history  
+This project runs a **real-time object detector** using a webcam and the YOLOv5 deep learning model.  
+It can recognize common objects such as dogs, people, cars, and more — directly from your camera feed.
 
 ---
 
-## 🚀 Getting Started
+## 📌 Features
+- Real-time camera input  
+- Uses YOLOv5 (small version — fast and lightweight)  
+- Draws bounding boxes around detected objects  
+- Beginner-friendly and easy to modify
 
-### Prerequisites
-- Python ≥ 3.9  
-- Pip / Virtual environment  
-- (Optional) GPU support for faster inference  
+---
 
-### Installation
+## 📸 How It Works
+1. The program loads YOLOv5s (small model) using PyTorch.
+2. It opens your computer’s default webcam.
+3. Each video frame is passed into YOLOv5.
+4. The model returns predictions (objects + confidence scores).
+5. The results are drawn on top of the video stream so you can see detections in real time.
+
+➡️ Press **Q** to exit the live window.
+
+---
+
+## 🧰 Requirements
+
+Make sure Python 3.7+ is installed.
+
+Install required packages:
+
 ```bash
-git clone https://github.com/yourusername/dog-identification-tracking.git
-cd dog-identification-tracking
-pip install -r requirements.txt
+pip install torch torchvision opencv-python pillow numpy
